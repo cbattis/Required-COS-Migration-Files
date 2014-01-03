@@ -1,0 +1,353 @@
+/* @import url('http://example.com/example_style.css'); */
+
+ /***********************************************/
+ /* CSS @imports must be at the top of the file */
+ /* Add them above this section                 */
+ /***********************************************/
+
+ /****************************************/
+ /* HS COS Boilerplate v1.0              */
+ /****************************************/
+
+ /* This responsive framework is required for all styles. */
+ {% include "hubspot/styles/responsive/required_base.css" %}
+
+ /* These includes are optional, but helpful. */
+ {% include "hubspot/styles/responsive/modules.css" %}
+ {% include "hubspot/styles/patches/recommended.css" %}
+
+ /****************************************/
+ /* Index                                */
+ /****************************************/
+ /*
+    - Variables
+    - Base
+    - Typography
+    - Structure
+    - Header
+    - Menu
+    - Content
+    - Blog
+    - Forms
+    - Footer
+    - Misc
+    - Mobile
+ */
+
+/****************************************/
+/* Variables                            */
+/****************************************/
+
+/* Find the most consistently used font styles, colors, and 
+   container widths for your site and apply them below 
+   for easy use and reference. 
+
+   Apply the variable as shown below (ignoring the jingja comment tags):
+   {#   property: {{ variableName }};   #}
+*/
+
+/* Colors */
+{% set baseColor      = "#333" %} 	 /* {# Dark Gray  - Used on 'body' in 'Base' - ex. "color: {{ baseColor }};" #} */
+{% set linkColor      = "#fd6500" %} /* {# Orange - Used on global anchors in 'Base' - ex. "color: {{ linkColor }};" #} */
+{% set accentColor1   = "#666" %} 	 /* {# Medium Gray - ex. "color: {{ accentColor1 }};" #} */
+{% set accentColor2   = "#ccc" %} 	 /* {# Light Gray - ex. "color: {{ accentColor2 }};" #} */
+{% set accentColor3   = "#ddd" %} 	 /* {# Lightest Gray - ex. "color: {{ accentColor3 }};" #} */
+
+/* Typography */
+{% set baseFontFamily    = "Arial, Sans-Serif" %}        /* {# Used on 'body' in 'Base' - ex. "font-family: {{ baseFontFamily }};" #} */
+{% set baseFontSize   	 = "13px" %}                     /* {# Used on 'body' in 'Base' - ex. "font-size: {{ baseFontSize }};" #} */
+{% set baseLineHeight 	 = "1.5" %}                      /* {# Used on 'body' in 'Base' - ex. "line-height: {{ baseLineHeight }};" #} */
+{% set webFont1 		 = "Helvetica, Arial, Sans-serif" %} /* {# ex. "font-family: {{ webFont1 }};" #} */
+
+/* Containers */
+{% set maxWidth = "960px" %} /* Used on '.page-center' in 'Base' and in the 'Portrait tablet to landscape and desktop' media query */
+
+/* Macros 
+   Create these for any css3 properties that require browser prefixes.
+
+   Apply the style as shown below (ignorning the jinja comment tags): 
+   {#   property: {{ variableName("values") }}  #}
+*/
+{% macro transition(value) -%} /* {#  ex. "transition: {{ transition("all .2s linear") }};"  #} */
+    -webkit-transition: {{ value }};
+    -moz-transition: {{ value }};
+    -o-transition: {{ value }};
+    -ms-transition: {{ value }};
+    transition: {{ value }};
+{%- endmacro %} 
+
+/*****************************************/
+/* Base - Start style declarations here  */
+/*****************************************/
+
+/* Apply a natural box layout model to all elements 
+   so that width and padding are combined, making 
+   responsive styles easier to manage */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* Custom fonts */
+/* ex. @import url(http://fonts.googleapis.com/css?family=Droid+Sans:400,700); */
+
+html, body {
+	min-height: 100%;
+	margin: 0;
+	padding: 0;
+} 
+
+/* Your website background color and default font styles can go here */
+body {
+  background: #fff;
+  color: {{ baseColor }};
+  font-family: {{ baseFontFamily }};
+  line-height: {{ baseLineHeight }};
+}
+
+/* Page Center - Apply this class to full-width modules */
+.page-center {
+  float: none !important;
+  max-width: {{ maxWidth }} !important;
+  margin: 0 auto !important;
+}
+
+a { color: {{ linkColor }}; }
+a:hover, a:focus {}
+
+/* Ensure responsive images retain proportions */
+img { height: auto !important; }
+
+/* Highlighted Text */
+::-moz-selection {
+    color: #fff;
+    background: {{ baseColor }};
+}
+::selection {
+    color: #fff;
+    background: {{ baseColor }};
+}
+
+
+/* ------ Typography ------ */
+/* Basic text */
+p {} 
+small {}
+strong {}
+em {}
+cite {}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {}
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {}
+
+h1 {}
+h2 {}
+h3 {}
+h4 {}
+h5 {}
+h6 {}
+
+/* Lists */
+ul, ol {}
+ul ul, ul ol, ol ol, ol ul {}
+
+li {}
+
+ul.unstyled, ol.unstyled {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+ul.inline, ol.inline {}
+ul.inline > li, ol.inline > li {}
+
+/* Quotes */
+blockquote {}
+blockquote p {}
+blockquote small {}
+blockquote small:before {}
+
+q:before, q:after, blockquote:before, blockquote:after {}
+
+
+/* ------ Structure ------ */
+/*  The outer wrappers of your website */
+.header-container-wrapper, 
+.body-container-wrapper, 
+.footer-container-wrapper {}
+
+/* The inner wrappers of your website */
+.header-container, 
+.body-container, 
+.footer-container {}
+
+/* Remove min-height on bootstrap structure */
+.row-fluid [class*="span"] { min-height: 0 !important; }
+
+
+/* ------ Header ------ */
+.header-container-wrapper {}
+.header-container {}
+
+/* Logo styling */
+.header-container .hs_cos_wrapper_type_logo {}
+.header-container .hs_cos_wrapper_type_logo a {}
+.header-container .hs_cos_wrapper_type_logo a img {}
+
+
+/* ------ Menu ------ */
+.header-container .hs-menu-wrapper.hs-menu-flow-horizontal {}
+ 
+.hs-menu-wrapper {}
+
+/* Anchors */
+.hs-menu-wrapper a {}
+.hs-menu-wrapper a:hover {}
+
+/* Drop down */
+.hs-menu-wrapper.hs-menu-flow-horizontal ul {}
+
+/* Override max width on menu links */
+.hs-menu-wrapper > ul li a {
+  overflow: visible !important;
+  max-width: none !important;
+}
+
+/* Apply mobile navigation solution here */
+
+
+/* ------ Content ------ */
+.body-container-wrapper {}
+.body-container {}
+
+
+/* ------ Blog ------ */
+
+/*-- Blog Post --*/
+body.hs-blog-post {}
+
+/*-- Blog Listing --*/
+body.hs-blog-listing {}
+
+/* Use this to style the main wrapper for the blog listing posts */
+.blog-listing-wrapper {}
+
+/* Use this to set up different styling for your blog posts */
+.blog-listing-wrapper .post-listing .post-item {}
+.blog-listing-wrapper .post-listing .post-item .post-body {}
+
+/*--- Blog Commments ---*/
+/* Custom styles listed below, as the COS does not provide default styles */
+#comments-listing {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.comment {
+    margin: 10px 0;
+    border-top: 1px solid #ccc;
+    padding: 15px 0;
+}
+.comment-date { font-size: 13px; text-align: right; }
+.comment-from { font-weight: bold; }
+.comment-body { padding: 10px 0; }
+
+/*--- Blog Commments Form ---*/
+#blog-comment-form {}
+#blog-comment-form  div.hs-form-field {}
+#blog-comment-form  div.hs-form-field label {}
+#blog-comment-form  div.hs-form-field .hs-field-desc {}
+#blog-comment-form  div.hs-form-field input[type="text"],
+#blog-comment-form  div.hs-form-field input[type="email"],
+#blog-comment-form  div.hs-form-field textarea { }
+#blog-comment-form  div.hs-form-field select {}
+#blog-comment-form  .hs-button {}
+
+#blog-comment-form  textarea, 
+#blog-comment-form  input[type="text"], 
+#blog-comment-form  input[type="password"], 
+#blog-comment-form  input[type="datetime"], 
+#blog-comment-form  input[type="datetime-local"], 
+#blog-comment-form  input[type="date"], 
+#blog-comment-form  input[type="month"], 
+#blog-comment-form  input[type="time"], 
+#blog-comment-form  input[type="week"], 
+#blog-comment-form  input[type="number"], 
+#blog-comment-form  input[type="email"], 
+#blog-comment-form  input[type="url"], 
+#blog-comment-form  input[type="search"], 
+#blog-comment-form  input[type="tel"], 
+#blog-comment-form  input[type="color"], 
+#blog-comment-form  .uneditable-input {}
+
+#blog-comment-form form div.hs-form-field ul li {}
+#blog-comment-form .hs_submit {}
+
+/*-- Pagination --*/
+.blog-pagination {}
+.blog-pagination .previous-posts-link {}
+.blog-pagination .all-posts-link {}
+.blog-pagination .next-posts-link {}
+
+/*-- Subscription frequency form --*/
+.hs_blog_default_blog_subscription {}
+.hs_blog_default_blog_subscription ul {}
+
+/* This is to override the default button styles.  Must include !important for each overriding propety */
+.hs_blog_default_blog_subscription .hs-button {}
+
+
+/* ------ Forms ------ */
+/* Most properties require !important tags and very specific selectors to override COS styles. */
+
+.hs-form {}
+
+.hs-input {}
+.hs-input:hover {}
+.hs-input:focus {}
+
+.field label {}
+
+/* Buttons */
+.hs-button {}
+.hs-button:hover {}
+.hs-button:focus {}
+.hs-button:active {}
+
+.hs-button:hover, .hs-button:focus, .hs-button:active {}
+
+
+/* ------ Footer ------ */
+.footer-container-wrapper {}
+.footer-container {}
+
+
+/* ------ Misc ------ */
+/* Any additional styles or unique components can go in this space */
+
+/* Text Alignment */
+.align-left { text-align: left; }
+.align-center { text-align: center; }
+.align-right { text-align: right; }
+
+/* Floats */
+.float-left { float: left; }
+.float-right { float: right; }
+
+
+/* ------ Mobile ------ */
+/* Large desktop */
+@media (min-width: 1200px) {}
+     
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: {{ maxWidth }}) {}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {}
+     
+/* Landscape phones and down */
+@media (max-width: 480px) {}
+
+/* Iphone */
+@media (max-width: 320px) {}
