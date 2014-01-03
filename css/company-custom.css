@@ -1,0 +1,57 @@
+ /***********************************************/
+ /* custom.css 						    */
+ /* All custom and miscellaneous styles         */
+ 
+ 
+ 
+/****************************************/
+/* Index                                */
+/****************************************/
+/*
+	- Reusable Components
+	- Template Module Classes
+	- Unique pages
+	- Micellaneous
+	- Mobile
+*/
+ 
+/****************************************/
+/* Reusable Components                  */
+/****************************************/
+ 
+ 
+/*-- ex. Containers --*/
+ 
+ 
+/*-- ex. Buttons --*/
+ 
+ 
+ 
+/****************************************/
+/* Unique Pages                         */
+/****************************************/
+ 
+/*-- ex. Homepage --*/
+ 
+ 
+/*-- ex. Contact Us --*/
+ 
+ 
+/****************************************/
+/* Miscellaneous                        */
+/****************************************/
+ 
+/*-- ex. Fancybox Plugin Overrides --*/
+ 
+/* ------ Mobile ------ */
+/* Large desktop */
+@media (min-width: 1200px) {}
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {}
+     
+/* Landscape phones and down */
+@media (max-width: 480px) {}
+ 
+/* Iphone */
+@media (max-width: 320px) {}
